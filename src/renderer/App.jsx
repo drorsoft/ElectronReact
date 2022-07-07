@@ -18,29 +18,27 @@ const Hello = () => {
     <div
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
     >
-      <h1 style={{ textAlign: 'center' }}>Electron!</h1>
-      <div>
+      <h1 style={{ textAlign: 'center' }}>Drorsoft Electron File Explorer!</h1>
+      <Flex>
         {' '}
-        <button style={{ marginBottom: 12 }} type="button" onClick={sayHello}>
-          Say Hello To The Nice Server!
-        </button>
-      </div>
+        <div>
+          {' '}
+          <button style={{ marginBottom: 12 }} type="button" onClick={sayHello}>
+            Say Hello To The Nice Server!
+          </button>
+        </div>
+        <div style={{ marginBottom: 12 }}>
+          {' '}
+          <button type="button" onClick={() => getFiles(path)}>
+            Give Me Files!
+          </button>
+        </div>
+        <div style={{ marginBottom: 12 }}>
+          {/* 👩‍🔬Mission👩‍🔬 - Get back to root directory (linux\mac or windows) */}
+          <button type="button">Get me back home🏡</button>
+        </div>
+      </Flex>
 
-      <div style={{ marginBottom: 12 }}>
-        {' '}
-        <button type="button" onClick={() => getFiles(path)}>
-          Give Me Files!
-        </button>
-      </div>
-
-      <div style={{ marginBottom: 12 }}>
-        {/* Get back to root directory (linux\mac or windows) */}
-        <button type="button">get me back home🏡</button>
-      </div>
-
-      {/* Mission - do a text filter, to search the current folder by name */}
-      <div>search files</div>
-      <input type="text" />
       <Flex>
         {/* Mission - sort files by size */}
         {/* Mission - sort files by name (a-z) */}
@@ -48,7 +46,7 @@ const Hello = () => {
           return (
             <File
               onDoubleClick={() => {
-                // MISSION: get the files inside the folder on double click
+                // 👩‍🔬MISSION👩‍🔬: get the files inside the folder on double click
                 // think about that you need to save the current PATH you are in
                 // to ||Explore|| other directory later on..!
               }}
@@ -61,10 +59,18 @@ const Hello = () => {
         })}
       </Flex>
 
-      <h1> Size in this folder:</h1>
-      {/* Mission: REDUCE the size of all the files in the current directory in MB */}
-      {/* Maybe this can help...?   https://stackoverflow.com/questions/42363140/how-to-find-the-size-of-the-file-in-node-js */}
-      {/* JS Reduce - https://www.w3schools.com/jsref/jsref_reduce.asp */}
+      <Fixed style={{ bottom: 24, top: 'auto', left: 'auto', right: 24 }}>
+        {/* 👩‍🔬Mission👩‍🔬 - do a text filter, to search the current folder by name */}
+        <h2>search files</h2>
+        <input type="text" />
+      </Fixed>
+      <Fixed>
+        {' '}
+        <h3> Size in this folder:</h3>
+        {/* 👩‍🔬Mission👩‍🔬: REDUCE the size of all the files in the current directory in MB */}
+        {/* Maybe this can help...?   https://stackoverflow.com/questions/42363140/how-to-find-the-size-of-the-file-in-node-js */}
+        {/* JS Reduce - https://www.w3schools.com/jsref/jsref_reduce.asp */}
+      </Fixed>
     </div>
   );
 };
@@ -78,6 +84,12 @@ export default function App() {
     </Router>
   );
 }
+
+const Fixed = styled.div`
+  position: fixed;
+  top: 12px;
+  left: 12px;
+`;
 
 const File = styled.div`
   text-align: center;
