@@ -69,7 +69,7 @@ const createWindow = async () => {
     width: 1024,
     height: 728,
     opacity: 1,
-    frame: false,
+    frame: true,
 
     icon: getAssetPath('icon.png'),
     webPreferences: {

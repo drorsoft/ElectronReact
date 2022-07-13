@@ -1,5 +1,6 @@
-const sayHello = () =>
-  window.electron.ipcRenderer.sendMessage('msg to server', ['hey, server!!!']);
+const sendMsg = window.electron.ipcRenderer.sendMessage;
+
+const sayHello = () => sendMsg('msg to server', ['hey, server!!!']);
 
 const getFiles = (path) => {
   console.log('fetching');

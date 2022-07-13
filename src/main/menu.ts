@@ -155,6 +155,12 @@ export default class MenuBuilder {
       label: 'Help',
       submenu: [
         {
+          label: 'testing',
+          click() {
+            shell.openExternal('https://drorsoft.com');
+          },
+        },
+        {
           label: 'Learn More',
           click() {
             shell.openExternal('https://electronjs.org');
@@ -255,6 +261,12 @@ export default class MenuBuilder {
       {
         label: 'Help',
         submenu: [
+          {
+            label: 'floops',
+            click() {
+              shell.openExternal('https://electronjs.org');
+            },
+          },
           {
             label: 'Learn More',
             click() {
